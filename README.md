@@ -11,7 +11,7 @@ A Swagger authentication plugin for ASP.NET Core applications.
 
 ## Installation
 
-```bash
+```
 dotnet add package SwaggerAuthPlugin
 ```
 
@@ -19,7 +19,9 @@ dotnet add package SwaggerAuthPlugin
 
 In your `Program.cs`:
 
-```csharp
+```
+builder.Services.AddControllers();
+
 builder.Services.AddSwaggerAuth(options =>
 {
     options.Enabled = true;
@@ -29,18 +31,20 @@ builder.Services.AddSwaggerAuth(options =>
 
 app.UseSwaggerAuth();
 app.UseSwagger();
+
+app.MapControllers();
 ```
 
 ## Options
 
-| Option | Description | Default |
-|--------|-------------|---------|
-| `Enabled` | Enable/disable authentication | `true` |
-| `CheckUrl` | URL to check login status | `/swagger/check-login` |
-| `SubmitUrl` | URL to submit login | `/swagger/submit-login` |
-| `EnableOnProduction` | Enable in production | `true` |
-| `DefaultUsername` | Default username | `admin` |
-| `DefaultPassword` | Default password | `1234567` |
+| Option               | Description                   | Default                 |
+| -------------------- | ----------------------------- | ----------------------- |
+| `Enabled`            | Enable/disable authentication | `true`                  |
+| `CheckUrl`           | URL to check login status     | `/swagger/check-login`  |
+| `SubmitUrl`          | URL to submit login           | `/swagger/submit-login` |
+| `EnableOnProduction` | Enable in production          | `true`                  |
+| `DefaultUsername`    | Default username              | `admin`                 |
+| `DefaultPassword`    | Default password              | `1234567`               |
 
 ## License
 
