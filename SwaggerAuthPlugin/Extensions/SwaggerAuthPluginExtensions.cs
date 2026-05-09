@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
 using System;
@@ -25,6 +26,16 @@ namespace SwaggerAuthPlugin
 
             // 可选：也注册一个单例，方便其他地方直接注入 SwaggerAuthPluginOptions
             //services.AddSingleton(resolver => resolver.GetRequiredService<IOptions<SwaggerAuthPluginOptions>>().Value);
+
+            return services;
+        }
+
+        public static IServiceCollection AddSwaggerAuth(this IServiceCollection services, IConfiguration configurationSection)
+        {
+            services.Configure<SwaggerAuthPluginOptions>(configurationSection);
+
+            services.AddDistributedMemoryCache();
+            services.AddSession();
 
             return services;
         }

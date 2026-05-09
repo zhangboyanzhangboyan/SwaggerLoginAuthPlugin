@@ -9,12 +9,9 @@ var builder = WebApplication.CreateBuilder(args);
 //    options.Enabled = true;
 //    options.DefaultUsername = "admin";
 //    options.DefaultPassword = "123456";
-//    // 或从配置文件读取：builder.Configuration.GetSection("SwaggerAuthPlugin"));
 //});
 
-//builder.Services.AddSwaggerAuth(builder.Configuration.GetSection("SwaggerAuthPlugin"));
-
-builder.Services.AddSwaggerAuth();
+builder.Services.AddSwaggerAuth(builder.Configuration.GetSection("SwaggerAuthPlugin"));
 
 // ========== 2. 注册 Swagger 服务 ==========
 builder.Services.AddSwaggerGen();
