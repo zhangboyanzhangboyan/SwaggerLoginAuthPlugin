@@ -29,8 +29,9 @@ builder.Services.AddSwaggerAuth(options =>
     options.DefaultPassword = "123456";
 });
 
-app.UseSwaggerAuth();
+app.UseSwaggerAuth(); //在UseSwagger前注册SwaggerAuth中间件
 app.UseSwagger();
+app.UseSwaggerUI();
 
 app.MapControllers();
 ```
