@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="SwaggerAuthPlugin/SwaggerAuthPlugin.csproj" />
+  <Project Path="WebApplicationTest/WebApplicationTest.csproj" Id="c4288889-42cb-47e5-9f7c-8b39a34f37c3" />
+</Solution>
